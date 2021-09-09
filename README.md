@@ -1,7 +1,7 @@
 # Pluto investigation
 
 This is a test API service built on top of [.Net Core Framework](https://dotnet.microsoft.com/download/dotnet/3.1) **3.1** exposing an endpoint simulating a rover controller.<br><br>
-The project structure and implementation follow a DDD approach where the Domain layer is the center of everything, using Rich Domain models having the responsibility to manage theirs state.
+The project structure and implementation follow a DDD approach where the Domain layer is the center of everything, using Rich Domain models performing businesslogic and maintaining their internal state.
 
 Requests validation has been decoupled by using [FluentValidation](https://fluentvalidation.net/).
 
