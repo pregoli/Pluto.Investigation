@@ -27,6 +27,21 @@ namespace Pluto.Investigation.Tests.Domain.Entities
             [InlineData(new Movement[]
                 {
                     Movement.B,
+                }, Direction.W, 3, 3, 1, 2, 2, 2)]
+            [InlineData(new Movement[]
+                {
+                    Movement.B,
+                    Movement.B,
+                    Movement.L,
+                    Movement.F,
+                }, Direction.E, 5, 5, 1, 2, 5, 3)]
+            [InlineData(new Movement[]
+                {
+                    Movement.B,
+                }, Direction.S, 3, 3, 1, 2, 1, 3)]
+            [InlineData(new Movement[]
+                {
+                    Movement.B,
                     Movement.R,
                     Movement.F
                 }, Direction.N, 100, 100, 0, 0, 1, 100)]
@@ -43,7 +58,7 @@ namespace Pluto.Investigation.Tests.Domain.Entities
                 {
                     Movement.F,
                     Movement.F,
-                }, Direction.W, 100, 100, 0, 0, 99, 0)]
+                }, Direction.W, 100, 100, 6, 2, 4, 2)]
             [InlineData(new Movement[]
                 {
                     Movement.F,
@@ -66,7 +81,7 @@ namespace Pluto.Investigation.Tests.Domain.Entities
                     Movement.L,
                     Movement.F,
                     Movement.B,
-                }, Direction.S, 100, 100, 0, 0, 99, 1)]
+                }, Direction.S, 100, 100, 0, 0, 99, 0)]
             public void Given_No_Obstacles_It_Should_To_Reach_The_Desired_Position(
                 Movement[] movements,
                 Direction startingDirection,

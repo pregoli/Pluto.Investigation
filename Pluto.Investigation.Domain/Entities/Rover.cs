@@ -95,9 +95,9 @@ namespace Pluto.Investigation.Domain.Entities
             Position = new Position(eventualNewCoordinate, currentDirection);
         }
 
-        private int StepForwardOnXAxis(int currentXAxis) => currentXAxis + 1 == _planet.XLength ? 0 : currentXAxis + 1;
+        private int StepForwardOnXAxis(int currentXAxis) => currentXAxis + 1 > _planet.XLength ? 0 : currentXAxis + 1;
 
-        private int StepForwardOnYAxis(int currentYAxis) => currentYAxis + 1 == _planet.YLength ? 0 : currentYAxis + 1;
+        private int StepForwardOnYAxis(int currentYAxis) => currentYAxis + 1 > _planet.YLength ? 0 : currentYAxis + 1;
 
         private int StepBackOnXAxis(int currentXAxis) => currentXAxis - 1 < 0 ? _planet.XLength : currentXAxis - 1;
 
