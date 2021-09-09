@@ -1,5 +1,4 @@
 ﻿using Pluto.Investigation.Domain.Common.Enum;
-using Pluto.Investigation.Domain.Exceptions;
 
 namespace Pluto.Investigation.Domain.ValueObjects
 {
@@ -64,5 +63,7 @@ namespace Pluto.Investigation.Domain.ValueObjects
                     break;
             }
         }
+
+        public void SetupCoordinate(Coordinate coordinate) => Coordinate = coordinate;
     }
 }

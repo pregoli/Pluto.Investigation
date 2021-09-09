@@ -17,5 +17,7 @@ namespace Pluto.Investigation.Domain.Entities
             YLength = yLength < 0 ? throw new InvalidPlanetSizeException(nameof(yLength)) : yLength;
             Obstacles = obstacles ?? new HashSet<Coordinate>();
         }
+
+        public bool ContainsObstaclesAtCoordinate(Coordinate coordinate) => Obstacles.Contains(coordinate);
     }
 }

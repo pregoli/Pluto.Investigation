@@ -8,5 +8,6 @@ namespace Pluto.Investigation.Domain.Interfaces
         int XLength { get; }
         int YLength { get; }
         HashSet<Coordinate> Obstacles { get; }
+        bool ContainsObstaclesAtCoordinate(Coordinate coordinate);
     }
 }

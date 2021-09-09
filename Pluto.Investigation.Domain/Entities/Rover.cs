@@ -41,7 +41,6 @@ namespace Pluto.Investigation.Domain.Entities
         {
             var currentXAxis = Position.Coordinate.XAxis;
             var currentYAxis = Position.Coordinate.YAxis;
-            var currentDirection = Position.Direction;
 
             switch (Position.Direction)
             {
@@ -63,14 +62,13 @@ namespace Pluto.Investigation.Domain.Entities
             if (CurrentPositionContainsObstacles(eventualNewCoordinate))
                 return;
 
-            Position = new Position(eventualNewCoordinate, currentDirection);
+            Position.SetupCoordinate(eventualNewCoordinate);
         }
 
         private void MoveBackward()
         {
             var currentXAxis = Position.Coordinate.XAxis;
             var currentYAxis = Position.Coordinate.YAxis;
-            var currentDirection = Position.Direction;
 
             switch (Position.Direction)
             {
@@ -92,7 +90,7 @@ namespace Pluto.Investigation.Domain.Entities
             if (CurrentPositionContainsObstacles(eventualNewCoordinate))
                 return;
 
-            Position = new Position(eventualNewCoordinate, currentDirection);
+            Position.SetupCoordinate(eventualNewCoordinate);
         }
 
         private int StepForwardOnXAxis(int currentXAxis) => currentXAxis + 1 > _planet.XLength ? 0 : currentXAxis + 1;
@@ -105,7 +103,7 @@ namespace Pluto.Investigation.Domain.Entities
 
         private bool CurrentPositionContainsObstacles(Coordinate eventualNewCoordinate)
         {
-            if (_planet.Obstacles.Contains(eventualNewCoordinate))
+            if (_planet.ContainsObstaclesAtCoordinate(eventualNewCoordinate))
             {
                 DetectedCollisions.Add(eventualNewCoordinate);
                 return true;

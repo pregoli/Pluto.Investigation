@@ -54,5 +54,25 @@ namespace Pluto.Investigation.Tests.Domain.ValueObjects
                 position.Direction.Should().Be(currentDirection);
             }
         }
+
+        public class SetupCoordinate
+        {
+            [Theory]
+            [InlineData(1, 2)]
+            [InlineData(3, 3)]
+            [InlineData(1, 5)]
+            public void Should_Setup_New_Coordinate(int newCoordinateX, int newCoordinateY)
+            {
+                //Arrange
+                var position = new Position(new Coordinate(1, 1), Direction.E);
+                var newCoordinate = new Coordinate(newCoordinateX, newCoordinateY);
+
+                //Act
+                position.SetupCoordinate(newCoordinate);
+
+                //Arrange
+                position.Coordinate.Should().Be(newCoordinate);
+            }
+        }
     }
 }
